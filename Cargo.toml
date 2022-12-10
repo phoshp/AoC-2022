@@ -1,0 +1,8 @@
+[package]
+name = "aoc_2022"
+version = "0.1.0"
+authors = [ "phoshp" ]
+edition = "2021"
+
+[dependencies]
+itertools = "0.10.5"
