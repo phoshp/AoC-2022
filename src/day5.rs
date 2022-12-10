@@ -67,7 +67,6 @@ fn part2() -> String {
 			let mut crates = Vec::new();
 			for _ in 0..count {
 				crates.push(columns[src_col].pop().unwrap());
-				
 			}
 			crates.reverse();
 			for cratee in crates {
