@@ -1,4 +1,4 @@
-use std::{ops::{Add, AddAssign}, str::Lines, collections::HashSet};
+use std::{ops::{Add, AddAssign}, collections::HashSet};
 
 #[derive(Debug, Default, PartialEq, PartialOrd, Clone, Copy)]
 struct Point(f32, f32);
