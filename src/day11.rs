@@ -64,7 +64,7 @@ fn inspect_items(mut monkeys: MonkeyList, rounds: u64, prediction: impl Fn(u64) 
 		i = 0;
 		round += 1;
 	}
-	inspected.iter().sorted().rev().take(2).product::<usize>()
+	inspected.iter().sorted().rev().take(2).product()
 }
 
 fn part1() -> usize {
