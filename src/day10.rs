@@ -6,27 +6,23 @@ fn part1() -> i32 {
 	let mut reg_x = 1;
 	let mut check = 20;
 
-	let mut check_cycle = |x, reg| {
-		if x == check && check < 260 {
-			saved.push(x * reg);
+	let mut check_cycle = |reg| {
+		if cycles == check && check < 260 {
+			saved.push(cycles * reg);
 			check += 40;
 		}
+		cycles += 1;
 	};
 
 	for ins in DATA.lines() {
 		match &ins[..4] {
 			"addx" =>  {
-				check_cycle(cycles, reg_x);
-				cycles += 1;
-				check_cycle(cycles, reg_x);
-				cycles += 1;
+				check_cycle(reg_x);
+				check_cycle(reg_x);
 				reg_x += ins[5..].parse::<i32>().unwrap();
 
 			}
-			"noop" => {
-				check_cycle(cycles, reg_x);
-				cycles += 1;
-			}
+			"noop" => check_cycle(reg_x),
 			_ => unreachable!()
 		}
 	}
@@ -38,32 +34,27 @@ fn part2() -> String {
 	let mut cycles = 1;
 	let mut reg_x = 1;
 
-	let mut check_cycle = |cycle, reg| {
-		let d: i32 = reg - ((cycle - 1) % 40);
+	let mut check_cycle = |reg| {
+		let d: i32 = reg - ((cycles - 1) % 40);
 		if d.abs() <= 1 {
 			crt.push('#');
 		} else {
 			crt.push(' ');
 		}
-		if cycle % 40 == 0 {
+		if cycles % 40 == 0 {
 			crt.push('\n');
 		}
+		cycles += 1;
 	};
 
 	for ins in DATA.lines() {
 		match &ins[..4] {
 			"addx" =>  {
-				check_cycle(cycles, reg_x);
-				cycles += 1;
-				check_cycle(cycles, reg_x);
-				cycles += 1;
+				check_cycle(reg_x);
+				check_cycle(reg_x);
 				reg_x += ins[5..].parse::<i32>().unwrap();
-
 			}
-			"noop" => {
-				check_cycle(cycles, reg_x);
-				cycles += 1;
-			}
+			"noop" => check_cycle(reg_x),
 			_ => unreachable!()
 		}
 	}
