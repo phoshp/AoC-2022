@@ -6,7 +6,7 @@ type Pos = (i32, i32);
 
 const DIAGONALS: [Pos; 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
 
-#[derive(Default, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[derive(Default, Clone, Debug)]
 struct Node {
     x: i32,
     y: i32,
