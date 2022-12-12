@@ -71,7 +71,7 @@ fn part1() -> usize {
 	inspect_items(get_monkeys(), 20, |x| (x as f64 / 3.0).floor() as u64)
 }
 
-fn part2() -> usize {
+fn part2() -> usize {//boklama zamani geldi
 	let monkeys = get_monkeys();
 	let div_max = monkeys.iter().map(|x| x.1).product::<u64>();
 	inspect_items(monkeys, 10000, |x| x % div_max)
