@@ -20,7 +20,6 @@ fn part1() -> i32 {
 				check_cycle(reg_x);
 				check_cycle(reg_x);
 				reg_x += ins[5..].parse::<i32>().unwrap();
-
 			}
 			"noop" => check_cycle(reg_x),
 			_ => unreachable!()
