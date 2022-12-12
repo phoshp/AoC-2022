@@ -7,7 +7,7 @@ enum Direction {
 	Right
 }
 
-const DATA: &str = include_str!("../data/day8.txt");
+const DATA: &str = include_str!("../data/day08.txt");
 
 fn part1() -> u32 {
 	let grid = DATA

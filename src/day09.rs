@@ -64,7 +64,7 @@ impl Knot {
 	}
 }
 
-const DATA: &str = include_str!("../data/day9.txt");
+const DATA: &str = include_str!("../data/day09.txt");
 
 fn part1() -> u32 {
 	let rope = vec![Knot { pos: Point(0.5, 0.5) }; 2];

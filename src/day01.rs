@@ -1,6 +1,6 @@
 use itertools::Itertools;
 
-const DATA: &str = include_str!("../data/day1.txt");
+const DATA: &str = include_str!("../data/day01.txt");
 
 fn part1() -> u32 {
 	DATA.replace('\r', "")

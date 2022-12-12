@@ -1,4 +1,4 @@
-const DATA: &str = include_str!("../data/day6.txt");
+const DATA: &str = include_str!("../data/day06.txt");
 
 fn part_common<const T: usize>() -> usize {
 	let mut marker = "".to_string();

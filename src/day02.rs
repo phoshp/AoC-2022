@@ -1,6 +1,6 @@
 use itertools::Itertools;
 
-const DATA: &str = include_str!("../data/day2.txt");
+const DATA: &str = include_str!("../data/day02.txt");
 
 fn rps_score(x: &str) -> u32 {
 	match x {

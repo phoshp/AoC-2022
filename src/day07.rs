@@ -29,7 +29,7 @@ impl<'a> Node<'a> {
 	}
 }
 
-const DATA: &str = include_str!("../data/day7.txt");
+const DATA: &str = include_str!("../data/day07.txt");
 
 fn part1_and_2() -> (u32, u32) {
 	let mut base = Node::default();

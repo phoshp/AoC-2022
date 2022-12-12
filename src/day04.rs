@@ -1,4 +1,4 @@
-const DATA: &str = include_str!("../data/day4.txt");
+const DATA: &str = include_str!("../data/day04.txt");
 
 fn part1() -> usize {
 	DATA.lines()

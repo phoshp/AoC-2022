@@ -1,4 +1,4 @@
-const DATA: &str = include_str!("../data/day5.txt");
+const DATA: &str = include_str!("../data/day05.txt");
 
 fn part1() -> String {
 	let data = DATA.replace('\r', "");

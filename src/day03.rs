@@ -1,6 +1,6 @@
 use itertools::Itertools;
 
-const DATA: &str = include_str!("../data/day3.txt");
+const DATA: &str = include_str!("../data/day03.txt");
 
 fn part1() -> i16 {
 	DATA.lines()
