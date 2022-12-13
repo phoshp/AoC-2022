@@ -10,6 +10,7 @@ mod day09;
 mod day10;
 mod day11;
 mod day12;
+mod day13;
 
 fn main() {
     println!("My Advent of Code 2022 Solutions in Rust");
@@ -26,4 +27,5 @@ fn main() {
 	day10::print_result();
 	day11::print_result();
 	day12::print_result();
+	day13::print_result();
 }

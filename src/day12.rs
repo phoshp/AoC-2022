@@ -63,15 +63,15 @@ fn create_grid() -> (Pos, Pos, Vec<Vec<Node>>) {
         .map(|(y, row)| {
             row.iter()
                 .enumerate()
-                .map(|(x, e)| {
-                    if *e == b'S' {
+                .map(|(x, &e)| {
+                    if e == b'S' {
                         start = (x as i32, y as i32);
                         b'a'
-                    } else if *e == b'E' {
+                    } else if e == b'E' {
                         end = (x as i32, y as i32);
                         b'z'
                     } else {
-                        *e
+                        e
                     }
                 })
 				.enumerate()
