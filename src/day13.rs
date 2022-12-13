@@ -78,13 +78,13 @@ fn part2() -> usize {
 			parse_node(it.next().unwrap(), &mut it)
 	}).collect_vec();
 	let div6 = Node::List(vec![Node::List(vec![Node::Int(6)])]);
-	let div3 = Node::List(vec![Node::List(vec![Node::Int(2)])]);
+	let div2 = Node::List(vec![Node::List(vec![Node::Int(2)])]);
 	pairs.push(div6.clone());
-	pairs.push(div3.clone());
+	pairs.push(div2.clone());
 	pairs.iter()
 		.sorted_by(|&left, &right| compare_pairs((left, right)))
 		.enumerate()
-		.filter(|&(_, node)| node.eq(&div6) || node.eq(&div3))
+		.filter(|&(_, node)| node.eq(&div6) || node.eq(&div2))
 		.map(|(i, _)| i + 1)
 		.product()
 }

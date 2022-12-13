@@ -50,7 +50,7 @@ fn find_path(grid: &[Vec<Node>], start: Pos, goal: impl Fn(Pos) -> bool, cond: i
 			open.push((step - 1, neighbor.0, neighbor.1));
 		}
 	}
-	0
+	i32::MAX
 }
 
 fn create_grid() -> (Pos, Pos, Vec<Vec<Node>>) {
