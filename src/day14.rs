@@ -63,16 +63,8 @@ impl Cave {
 
     fn place_rocks(&mut self, src: Pos, dst: Pos) {
         let sub = (dst.x - src.x, dst.y - src.y);
-        let range_x = if sub.0 > 0 {
-            src.x..=dst.x
-        } else {
-            dst.x..=src.x
-        };
-        let range_y = if sub.1 > 0 {
-            src.y..=dst.y
-        } else {
-            dst.y..=src.y
-        };
+        let range_x = if sub.0 > 0 { src.x..=dst.x } else { dst.x..=src.x };
+        let range_y = if sub.1 > 0 { src.y..=dst.y } else { dst.y..=src.y };
 
         for i in range_x {
             self.place_material(Pos::new(i, src.y), Material::Rock);
@@ -88,7 +80,7 @@ struct Simulation {
     sand_spawn_pos: Pos,
     current_sand_pos: Pos,
     sands_rested: u32,
-    locked: bool,
+    running: bool,
     bedrock_level: i32,
 }
 
@@ -99,13 +91,13 @@ impl Simulation {
             sand_spawn_pos: Pos::new(500, 0),
             current_sand_pos: Pos::new(500, 0),
             sands_rested: 0,
-            locked: false,
+            running: true,
             bedrock_level: i32::MAX,
         }
     }
 
     fn step(&mut self) {
-        if self.locked {
+        if !self.running {
             return;
         }
         let pos0 = self.current_sand_pos + Pos::new(0, 1);
@@ -134,7 +126,7 @@ impl Simulation {
 					self.sands_rested += 1;
                     self.current_sand_pos = self.sand_spawn_pos;
 					if matches!(self.cave.get_material(self.sand_spawn_pos), Material::Sand) {
-						self.locked = true;
+						self.running = false;
 						return;
 					}
                 }
@@ -147,7 +139,7 @@ impl Simulation {
         }
 
         if self.current_sand_pos.y > self.cave.abyss_level {
-            self.locked = true;
+            self.running = false;
         }
     }
 }
@@ -173,7 +165,7 @@ fn create_simulation() -> Simulation {
 
 fn part1() -> u32 {
     let mut sim = create_simulation();
-    while !sim.locked {
+    while sim.running {
         sim.step();
     }
     sim.sands_rested
@@ -183,7 +175,7 @@ fn part2() -> u32 {
     let mut sim = create_simulation();
 	sim.cave.abyss_level += 2;
 	sim.bedrock_level = sim.cave.abyss_level;
-    while !sim.locked {
+    while sim.running {
         sim.step();
     }
     sim.sands_rested
